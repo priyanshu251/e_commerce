@@ -38,6 +38,7 @@ class _BannerProductScreenState extends State<BannerProductScreen> {
         ],
       ),
       body: GridView.builder(
+        physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 2 / 3,

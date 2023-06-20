@@ -1,3 +1,4 @@
+import 'package:e_commerce/utilities/category_grid.dart';
 import 'package:e_commerce/widget/banner.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/constants.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
+    // double w = MediaQuery.of(context).size.width;
     //double h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 230, 232, 253),
@@ -28,42 +29,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 parent: AlwaysScrollableScrollPhysics()),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(
+              children: const [
+                Padding(
                   padding: EdgeInsets.symmetric(vertical: 12),
                   child: BannerProvider(),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.all(12.0),
                   child: Text(
                     'Shop By Category',
                     style: kHomeTitleStyle,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-                  child: GridView.builder(
-                    physics: const ScrollPhysics(
-                        parent: NeverScrollableScrollPhysics()),
-                    shrinkWrap: true,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      childAspectRatio: 3 / 3,
-                    ),
-                    itemCount: 9,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: EdgeInsets.only(
-                            bottom: w / 30, left: w / 60, right: w / 60),
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                CategoryGrid(),
               ],
             ),
           );
